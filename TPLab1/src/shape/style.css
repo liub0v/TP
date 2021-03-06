@@ -1,0 +1,12 @@
+.shapesComboBox .list-cell
+{
+    -fx-background: white;
+    -fx-background-color: rgba(250, 93, 205, 0);
+
+}
+.button:disabled {
+   // -fx-base: #c4fbc1;
+    -fx-background: #b2c8ff;
+    -fx-background-color: rgba(13, 250, 56, 0.82);
+    -fx-text-fill: rgb(0, 0, 0);
+}
