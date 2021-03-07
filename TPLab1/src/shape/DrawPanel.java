@@ -80,7 +80,6 @@ public class DrawPanel extends Canvas {
 
             //shapes are drawn by 2 points
             if (pointsNumber > 1 && pointsNumber % 2 == 0) {
-
                 switch (shape) {
                     case "Line":
                         Line line = new Line(points.get(pointsNumber - 2), points.get(pointsNumber - 1), color);
@@ -99,9 +98,21 @@ public class DrawPanel extends Canvas {
 
                         break;
                     case "Circle":
-
+                        Circle circle = new Circle(points.get(pointsNumber - 2), points.get(pointsNumber - 1), color, Color.WHITE);
+                        circle.draw(gc);
                         break;
 
+                }
+
+            }
+
+            if (pointsNumber > 1 && pointsNumber % 3 == 0) {
+                switch (shape) {
+                    case "Ellipse":
+                        Ellipse ellipse = new Ellipse(points.get(pointsNumber - 3), points.get(pointsNumber - 2),
+                                points.get(pointsNumber - 1), color, Color.WHITE);
+                        ellipse.draw(gc);
+                        break;
                 }
 
             }

@@ -50,18 +50,18 @@ public class Line extends OneDimensionalShape {
 
         if (Double.isInfinite(a) || Double.isInfinite(b)){
             double x = getCenter().x;
-            gc.strokeLine(x, 400,x, 0);
+            gc.strokeLine(x, 600,x, 0);
         }else if (a < 0 ) {
             gc.strokeLine(0, b,-b / a, 0);
 
         } else if (a > 0 && b > 0) {
-            gc.strokeLine(0, b,(400 - b) / a, 400);
+            gc.strokeLine(0, b,(600 - b) / a, 600);
 
         } else if (a > 0 && b < 0) {
-            gc.strokeLine(400, 400 * a + b,(0 - b) / a, 0);
+            gc.strokeLine(600, 600 * a + b,(0 - b) / a, 0);
 
         } else if (a == 0) {
-            gc.strokeLine(0, b,400, b);
+            gc.strokeLine(0, b,600, b);
         }
 
         gc.stroke();
