@@ -95,7 +95,8 @@ public class DrawPanel extends Canvas {
                         lineSegment.draw(gc);
                         break;
                     case "Rectangle":
-
+                        Rectangle rect= new Rectangle(points.get(pointsNumber - 2), points.get(pointsNumber - 1), color, color);
+                        rect.draw(gc);
                         break;
                     case "Circle":
                         Circle circle = new Circle(points.get(pointsNumber - 2), points.get(pointsNumber - 1), color, Color.WHITE);

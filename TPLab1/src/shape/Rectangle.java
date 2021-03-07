@@ -1,34 +1,42 @@
 package shape;
 
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.paint.Color;
 
 import java.awt.*;
+import java.util.ArrayList;
 
-/**
- * @version 1.0
- * @created 01-Mar-2021 23:41:40
- */
+
 public class Rectangle extends Polygon {
 
-	public Rectangle(){
-
+	public Rectangle() {
 	}
 
-	public void finalize() throws Throwable {
-		super.finalize();
+	public Rectangle(Point theCenter, Point cornerPoint, Color borderColor, Color fillColor) {
+		super(theCenter, borderColor, fillColor);
+		setPoints(getParallelogramPoints(cornerPoint));
 	}
 
-	@Override
-	public void draw( GraphicsContext g ) {
+	public ArrayList<Point> getParallelogramPoints(Point cornerPoint) {
+		Point theCenter = getCenter();
+		ArrayList<Point> points = new ArrayList<>(4);
+		//Point upperLeft = new Point(2 * theCenter.x - cornerPoint.x, 2 * theCenter.y - cornerPoint.y);
+		//Point upperRight = new Point(cornerPoint.x + cornerPoint.y - upperLeft.y, upperLeft.y);
+		//Point bottomLeft = new Point(2 * theCenter.x - upperRight.x, 2 * theCenter.y - upperRight.y);
+		Point upperLeft = new Point(2 * theCenter.x - cornerPoint.x, 2 * theCenter.y - cornerPoint.y);
+		Point upperRight = new Point(cornerPoint.x, upperLeft.y);
+		Point bottomLeft = new Point(2 * theCenter.x - upperRight.x, 2 * theCenter.y - upperRight.y);
 
+		points.add(cornerPoint);
+		points.add(upperRight);
+		points.add(upperLeft);
+		points.add(bottomLeft);
+		return points;
 	}
 
-
-	public Point getCenter(){
-		return getCenter();
+	public void setCornerPoint(Point pt) {
+		setPoints(getParallelogramPoints(pt));
 	}
-	public void move(){
 
-	}
 
 }
