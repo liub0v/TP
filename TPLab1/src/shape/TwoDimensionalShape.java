@@ -1,6 +1,7 @@
 package shape;
 
 
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
 import java.awt.*;
@@ -25,8 +26,9 @@ public abstract class TwoDimensionalShape extends Shape {
 		super.finalize();
 	}
 
-	public void draw(){
-
+	public void draw(GraphicsContext gc){
+		gc.setStroke(getBorderColor());
+		gc.setFill(getFillColor());
 	}
 
 //	public void getCenter(){

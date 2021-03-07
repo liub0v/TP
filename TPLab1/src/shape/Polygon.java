@@ -113,7 +113,9 @@ public class Polygon extends TwoDimensionalShape {
 
 	@Override
 	public void draw(GraphicsContext gc) {
+		super.draw(gc);
 		gc.strokePolygon(getxPoints(), getyPoints(), getnPoints());
+		gc.fillPolygon(getxPoints(), getyPoints(), getnPoints());
 	}
 
 

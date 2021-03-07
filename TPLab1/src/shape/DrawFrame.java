@@ -22,7 +22,7 @@ public class DrawFrame extends GridPane {
     private CheckBox filledCheckBox = new CheckBox();
     //comboBox
     private ObservableList<String> shape1DNames = FXCollections.observableArrayList( "Line", "Ray", "Line Segment");
-    private ObservableList<String> shape2DNames = FXCollections.observableArrayList("Rectangle", "Circle", "Rhombus", "Ellipse");
+    private ObservableList<String> shape2DNames = FXCollections.observableArrayList("Rectangle", "Circle", "Rhombus", "Ellipse", "Parallelogram");
     private ComboBox<String> shapesComboBox = new ComboBox<String>();
     //canvas
     DrawPanel canvas = new DrawPanel();

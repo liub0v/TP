@@ -17,6 +17,7 @@ public class DrawPanel extends Canvas {
     private int pointsNumber =0;
     private GraphicsContext gc;
     private Color color = Color.BLACK;
+    private Shape myShape;
     String shape = "";
 
     public DrawPanel() {
@@ -82,42 +83,51 @@ public class DrawPanel extends Canvas {
             if (pointsNumber > 1 && pointsNumber % 2 == 0) {
                 switch (shape) {
                     case "Line":
-                        Line line = new Line(points.get(pointsNumber - 2), points.get(pointsNumber - 1), color);
-                        line.draw(gc);
+                        myShape = new Line(points.get(pointsNumber - 2), points.get(pointsNumber - 1), color);
+                        myShape.draw(gc);
 
                         break;
                     case "Ray":
-                        Ray ray = new Ray(points.get(pointsNumber - 2), points.get(pointsNumber - 1), color);
-                        ray.draw(gc);
+                        myShape = new Ray(points.get(pointsNumber - 2), points.get(pointsNumber - 1), color);
+                        myShape.draw(gc);
                         break;
                     case "Line Segment":
-                        LineSegment lineSegment = new LineSegment(points.get(pointsNumber - 2), points.get(pointsNumber - 1), color);
-                        lineSegment.draw(gc);
+                        myShape = new LineSegment(points.get(pointsNumber - 2), points.get(pointsNumber - 1), color);
+                        myShape.draw(gc);
                         break;
                     case "Rectangle":
-                        Rectangle rect= new Rectangle(points.get(pointsNumber - 2), points.get(pointsNumber - 1), color, color);
-                        rect.draw(gc);
+                        myShape= new Rectangle(points.get(pointsNumber - 2), points.get(pointsNumber - 1), color, Color.WHITE);
+                        myShape.draw(gc);
+                        break;
+                    case "Parallelogram":
+                        myShape= new Parallelogram(points.get(pointsNumber - 2), points.get(pointsNumber - 1), color, Color.WHITE);
+                        myShape.draw(gc);
                         break;
                     case "Circle":
-                        Circle circle = new Circle(points.get(pointsNumber - 2), points.get(pointsNumber - 1), color, Color.WHITE);
-                        circle.draw(gc);
+                        myShape = new Circle(points.get(pointsNumber - 2), points.get(pointsNumber - 1), color, Color.WHITE);
+                        myShape.draw(gc);
                         break;
-
                 }
 
             }
-
+            //shapes are drawn by 3 points
             if (pointsNumber > 1 && pointsNumber % 3 == 0) {
                 switch (shape) {
                     case "Ellipse":
-                        Ellipse ellipse = new Ellipse(points.get(pointsNumber - 3), points.get(pointsNumber - 2),
+                        myShape = new Ellipse(points.get(pointsNumber - 3), points.get(pointsNumber - 2),
                                 points.get(pointsNumber - 1), color, Color.WHITE);
-                        ellipse.draw(gc);
+                        myShape.draw(gc);
+                        break;
+                    case "Rhombus":
+                        myShape = new Rhombus(points.get(pointsNumber - 3), points.get(pointsNumber - 2),
+                                points.get(pointsNumber - 1), color, Color.WHITE);
+                        myShape.draw(gc);
                         break;
                 }
 
             }
-
+            //shapes are drawn by more points
+            //shapes are drawn by fixed amount points
 
         }
     };
