@@ -127,6 +127,11 @@ public class DrawPanel extends Canvas {
                             myShape = new Parallelogram(points.get(pointsNumber - 2), points.get(pointsNumber - 1), borderColor, fillColor);
                             myShape.draw(gc);
                             break;
+                        case "Regular Polygon":
+                            myShape = new RegularPolygon( points.get(pointsNumber - 2), points.get(pointsNumber - 1),
+                                    borderColor, Color.WHITE, 4);
+                            myShape.draw(gc);
+                            break;
                         case "Circle":
                             myShape = new Circle(points.get(pointsNumber - 2), points.get(pointsNumber - 1), borderColor, fillColor);
                             myShape.draw(gc);
@@ -173,8 +178,11 @@ public class DrawPanel extends Canvas {
         @Override
         public void handle(MouseEvent event) {
             Point point = new Point((int) (event.getSceneX()), (int) event.getSceneY());
-            if (isDragged)
+            if (isDragged) {
                 myShape.move(point);
+                repaint();
+                myShape.draw(gc);
+            }
         }
     };
     private final EventHandler<MouseEvent> mouseHandler3 = new EventHandler<MouseEvent>() {

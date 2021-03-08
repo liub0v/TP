@@ -31,7 +31,7 @@ public abstract class Shape {
     }
 
     public void move(Point pt) {
-        theCenter.setLocation(pt);
+        this.theCenter=pt;
     }
 
     public abstract boolean contains(Point pt);
