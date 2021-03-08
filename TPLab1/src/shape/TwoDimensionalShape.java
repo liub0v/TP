@@ -35,10 +35,6 @@ public abstract class TwoDimensionalShape extends Shape {
 //
 //	}
 
-	public void move(){
-
-	}
-
 	public Color getFillColor(){
 		return fillColor;
 	}

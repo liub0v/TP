@@ -17,6 +17,11 @@ public class Rectangle extends Polygon {
 		setPoints(getParallelogramPoints(cornerPoint));
 	}
 
+	@Override
+	public void move(Point pt) {
+		super.move(pt);
+	}
+
 	public ArrayList<Point> getParallelogramPoints(Point cornerPoint) {
 		Point theCenter = getCenter();
 		ArrayList<Point> points = new ArrayList<>(4);

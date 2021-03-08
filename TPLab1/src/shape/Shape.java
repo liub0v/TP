@@ -34,6 +34,8 @@ public abstract class Shape {
         theCenter.setLocation(pt);
     }
 
+    public abstract boolean contains(Point pt);
+
     public Color getBorderColor() {
         return borderColor;
     }

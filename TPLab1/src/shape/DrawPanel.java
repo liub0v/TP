@@ -20,19 +20,21 @@ public class DrawPanel extends Canvas {
     private Color fillColor = Color.WHITE;
     private Shape myShape;
     String shape = "";
+    private boolean isDragged = false;
+    private boolean letsmove = false;
 
     public DrawPanel() {
 
         super();
         gc = this.getGraphicsContext2D();
-
         setSize();
         setBackground(Color.WHITE);
-
+        letsmove = getLetsMoveValue();
         gc.setFill(fillColor);
         gc.setStroke(borderColor);
         this.setOnMouseClicked(mouseHandler);
-
+        this.setOnMouseDragged(mouseHandler2);
+        this.setOnMouseReleased(mouseHandler3);
     }
 
     private void setBackground(Color color) {
@@ -51,6 +53,13 @@ public class DrawPanel extends Canvas {
         points.clear();
     }
 
+    public void moving(boolean value){
+     this.letsmove = value;
+    }
+
+    boolean getLetsMoveValue(){
+        return this.letsmove;
+    }
     void resetPoints() {
         points.clear();
     }
@@ -87,62 +96,90 @@ public class DrawPanel extends Canvas {
 
             drawPoint(event);
 
-            //shapes are drawn by 2 points
-            if (pointsNumber % 2 == 0) {
-                switch (shape) {
-                    case "Line":
-                        myShape = new Line(points.get(pointsNumber - 2), points.get(pointsNumber - 1), borderColor);
-                        myShape.draw(gc);
-
-                        break;
-                    case "Ray":
-                        myShape = new Ray(points.get(pointsNumber - 2), points.get(pointsNumber - 1), borderColor);
-                        myShape.draw(gc);
-                        break;
-                    case "Line Segment":
-                        myShape = new LineSegment(points.get(pointsNumber - 2), points.get(pointsNumber - 1), borderColor);
-                        myShape.draw(gc);
-                        break;
-                    case "Broken line":
-                        myShape = new BrokenLine(points.get(pointsNumber - 2), points.get(pointsNumber - 1), borderColor);
-                        myShape.draw(gc);
-                        ((BrokenLine) myShape).addPoint(new Point((int) (event.getSceneX()), (int) event.getSceneY()));
-                        break;
-                    case "Rectangle":
-                        myShape= new Rectangle(points.get(pointsNumber - 2), points.get(pointsNumber - 1), borderColor, fillColor);
-                        myShape.draw(gc);
-                        break;
-                    case "Parallelogram":
-                        myShape= new Parallelogram(points.get(pointsNumber - 2), points.get(pointsNumber - 1), borderColor, fillColor);
-                        myShape.draw(gc);
-                        break;
-                    case "Circle":
-                        myShape = new Circle(points.get(pointsNumber - 2), points.get(pointsNumber - 1), borderColor, fillColor);
-                        myShape.draw(gc);
-                        break;
+            if (getLetsMoveValue()) {
+                Point point = new Point((int) (event.getSceneX()), (int) event.getSceneY());
+                if (myShape.contains(point)) {
+                    isDragged = true;
                 }
+            } else {
+                //shapes are drawn by 2 points
+                if (pointsNumber % 2 == 0) {
+                    switch (shape) {
+                        case "Line":
+                            myShape = new Line(points.get(pointsNumber - 2), points.get(pointsNumber - 1), borderColor);
+                            myShape.draw(gc);
+
+                            break;
+                        case "Ray":
+                            myShape = new Ray(points.get(pointsNumber - 2), points.get(pointsNumber - 1), borderColor);
+                            myShape.draw(gc);
+                            break;
+                        case "Line Segment":
+                            myShape = new LineSegment(points.get(pointsNumber - 2), points.get(pointsNumber - 1), borderColor);
+                            myShape.draw(gc);
+                            break;
+                        case "Broken line":
+                            myShape = new BrokenLine(points.get(pointsNumber - 2), points.get(pointsNumber - 1), borderColor);
+                            myShape.draw(gc);
+                            ((BrokenLine) myShape).addPoint(new Point((int) (event.getSceneX()), (int) event.getSceneY()));
+                            break;
+                        case "Rectangle":
+                            myShape = new Rectangle(points.get(pointsNumber - 2), points.get(pointsNumber - 1), borderColor, fillColor);
+                            myShape.draw(gc);
+                            break;
+                        case "Parallelogram":
+                            myShape = new Parallelogram(points.get(pointsNumber - 2), points.get(pointsNumber - 1), borderColor, fillColor);
+                            myShape.draw(gc);
+                            break;
+                        case "Circle":
+                            myShape = new Circle(points.get(pointsNumber - 2), points.get(pointsNumber - 1), borderColor, fillColor);
+                            myShape.draw(gc);
+                            break;
+                    }
+
+                }
+                //shapes are drawn by 3 points
+                if (pointsNumber > 1 && pointsNumber % 3 == 0) {
+                    switch (shape) {
+                        case "Ellipse":
+                            myShape = new Ellipse(points.get(pointsNumber - 3), points.get(pointsNumber - 2),
+                                    points.get(pointsNumber - 1), borderColor, fillColor);
+                            myShape.draw(gc);
+                            break;
+                        case "Rhombus":
+                            myShape = new Rhombus(points.get(pointsNumber - 3), points.get(pointsNumber - 2),
+                                    points.get(pointsNumber - 1), borderColor, fillColor);
+                            myShape.draw(gc);
+                            break;
+                    }
+
+                }
+                //shapes are drawn by more points
+                //shapes are drawn by fixed amount points
 
             }
-            //shapes are drawn by 3 points
-            if (pointsNumber > 1 && pointsNumber % 3 == 0) {
-                switch (shape) {
-                    case "Ellipse":
-                        myShape = new Ellipse(points.get(pointsNumber - 3), points.get(pointsNumber - 2),
-                                points.get(pointsNumber - 1), borderColor, fillColor);
-                        myShape.draw(gc);
-                        break;
-                    case "Rhombus":
-                        myShape = new Rhombus(points.get(pointsNumber - 3), points.get(pointsNumber - 2),
-                                points.get(pointsNumber - 1), borderColor, fillColor);
-                        myShape.draw(gc);
-                        break;
-                }
-
-            }
-            //shapes are drawn by more points
-            //shapes are drawn by fixed amount points
-
         }
+
     };
 
+    private final EventHandler<MouseEvent> mouseHandler2 = new EventHandler<MouseEvent>() {
+
+        @Override
+        public void handle(MouseEvent event) {
+            Point point = new Point((int) (event.getSceneX()), (int) event.getSceneY());
+            if (isDragged)
+                myShape.move(point);
+        }
+    };
+    private final EventHandler<MouseEvent> mouseHandler3 = new EventHandler<MouseEvent>() {
+
+        @Override
+        public void handle(MouseEvent event) {
+            Point point = new Point((int) (event.getSceneX()), (int) event.getSceneY());
+            if (letsmove) {
+                isDragged = false;
+                letsmove = false;
+            }
+        }
+    };
 }
