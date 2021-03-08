@@ -11,68 +11,88 @@ import java.awt.*;
  */
 public class Ellipse extends TwoDimensionalShape {
 
-	private Point firstPoint;
-	private Point secondPoint;
+	private Point cornerPoint;
+	private int width;
+	private int height;
 
-	public Ellipse(){
+
+	public Ellipse() {}
+
+
+	public Ellipse(Point theCenter, Color borderColor, Color fillColor, Point cornerPoint) {
+		super(theCenter, borderColor, fillColor);
+		this.cornerPoint = cornerPoint;
 
 	}
 
-	public Ellipse(Point theCenter, Point firstPoint, Point secondPoint, Color borderColor, Color fillColor) {
-		super(theCenter,borderColor,fillColor);
-		this.firstPoint=firstPoint;
-		this.secondPoint=secondPoint;
-	}
-
-	public void finalize() throws Throwable {
-		super.finalize();
-	}
-
-	@Override
-	public void draw( GraphicsContext gc ) {
-		gc.setStroke(getBorderColor());
-		gc.setFill(getFillColor());
-		double x = getCenter().x;
-		double y = getCenter().y;
-		double height = Math.sqrt((x-firstPoint.x)*(x-firstPoint.x)+
-				(y-firstPoint.y)*(y-firstPoint.y))*2;
-		double width = Math.sqrt((x-secondPoint.x)*	(x-secondPoint.x)+
-				(y-secondPoint.y)*(y-secondPoint.y))*2;
-		gc.strokeOval(getCenter().x - width/2, getCenter().y-height/2, width,height);
-		gc.fillOval(getCenter().x - width/2, getCenter().y-height/2, width,height);
-	}
 	@Override
 	public boolean contains(Point pt) {
-		double x = getCenter().x;
-		double y = getCenter().y;
-		double height = Math.sqrt((x-firstPoint.x)*(x-firstPoint.x)+
-				(y-firstPoint.y)*(y-firstPoint.y))*2;
-		double width = Math.sqrt((x-secondPoint.x)*	(x-secondPoint.x)+
-				(y-secondPoint.y)*(y-secondPoint.y))*2;
+		int width = getWidth();
+		int height = getHeight();
 		Point theCenter = getCenter();
 		double alpha = (double) (pt.x - theCenter.x) / width;
 		double beta = (double) (pt.y - theCenter.y) / height;
 		return 4 * (alpha * alpha + beta * beta) < 1;
 	}
 
-	public Point getCenter(){
-		return super.getCenter();
+	@Override
+	public void draw(GraphicsContext gc) {
+		gc.setStroke(getBorderColor());
+		gc.setFill(getFillColor());
+		Point cornerPoint = getCornerPoint();
+		gc.strokeOval(cornerPoint.x, cornerPoint.y, this.width, this.height);
+		gc.fillOval(cornerPoint.x, cornerPoint.y, this.width, this.height);
+
 	}
 
-	public Point getFirstPoint(){
-		return firstPoint;
+	public Point getCornerPoint() {
+		return cornerPoint;
+	}
+
+
+	public void setCornerPointX(int x){
+		this.cornerPoint.x = x;
+	}
+	public void setCornerPointY(int y){
+		this.cornerPoint.y = y;
+	}
+
+	public void setCornerPoint(Point cornerPoint) {
+		this.cornerPoint = cornerPoint;
+		Point theCenter = getCenter();
+		adaptCornerPoint(theCenter);
+		this.width = 2 * (theCenter.x - cornerPoint.x);
+		this.height = 2 * (theCenter.y - cornerPoint.y);
+	}
+
+	public int getWidth() {
+		return width;
+	}
+
+	public void setWidth(int width) {
+		this.width = width;
+	}
+
+	public int getHeight() {
+		return height;
+	}
+
+	public void setHeight(int height) {
+		this.height = height;
+	}
+
+	protected void adaptCornerPoint(Point theCenter) {
+		int deltaX = theCenter.x - cornerPoint.x;
+		int deltaY = theCenter.y - cornerPoint.y;
+		if (deltaX < 0)
+			cornerPoint.translate(2 * deltaX, 0);
+		if (deltaY < 0)
+			cornerPoint.translate(0, 2 * deltaY);
 	}
 
 	public void move(Point pt) {
 		Point theCenter = getCenter();
-		double x = getCenter().x;
-		double y = getCenter().y;
-		double height = Math.sqrt((x-firstPoint.x)*(x-firstPoint.x)+
-				(y-firstPoint.y)*(y-firstPoint.y))*2;
-		double width = Math.sqrt((x-secondPoint.x)*	(x-secondPoint.x)+
-				(y-secondPoint.y)*(y-secondPoint.y))*2;
-		this.firstPoint = new Point((int)(pt.x+ height), (int)(pt.x+height));
-		this.secondPoint= new Point((int)(pt.x+ width), (int)(pt.x+width));
+		cornerPoint.translate(pt.x - theCenter.x, pt.y - theCenter.y);
 		super.move(pt);
 	}
 
