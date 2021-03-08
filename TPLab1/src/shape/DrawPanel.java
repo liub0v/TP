@@ -3,11 +3,13 @@ package shape;
 import javafx.event.EventHandler;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Optional;
 
 public class DrawPanel extends Canvas {
 
@@ -22,6 +24,7 @@ public class DrawPanel extends Canvas {
     String shape = "";
     private boolean letsmove = false;
     private boolean isDragged = true;
+    private int numberOfSides = 4;
 
     public DrawPanel() {
 
@@ -128,8 +131,14 @@ public class DrawPanel extends Canvas {
                             myShape.draw(gc);
                             break;
                         case "Regular Polygon":
+                            TextInputDialog td = new TextInputDialog("4");
+                            td.setHeaderText("Number of sides");
+                            Optional<String> result = td.showAndWait();
+                            if (result.isPresent()){
+                                numberOfSides = Integer.parseInt(result.get());
+                            }
                             myShape = new RegularPolygon( points.get(pointsNumber - 2), points.get(pointsNumber - 1),
-                                    borderColor, Color.WHITE, 4);
+                                    borderColor, Color.WHITE, numberOfSides);
                             myShape.draw(gc);
                             break;
                         case "Circle":
