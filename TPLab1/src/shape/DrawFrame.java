@@ -10,6 +10,7 @@ import javafx.scene.paint.Color;
 public class DrawFrame extends GridPane {
 
     //buttons
+    private ToggleButton moveBtn = new ToggleButton("Move");
     private Button clearBtn = new Button("Clear");
     private Button shape1DBtn = new Button("1D");
     private Button shape2DBtn = new Button("2D");
@@ -39,6 +40,8 @@ public class DrawFrame extends GridPane {
 
         clearBtn.setPrefSize(100, 20);
         clearBtn.getStyleClass().add("clearBtn");
+        moveBtn.setPrefSize(100, 20);
+        moveBtn.getStyleClass().add("moveBtn");
         borderColorPicker.setPrefSize(100, 30);
         fillColorPicker.setPrefSize(100, 30);
         shape1DBtn.setPrefSize(50, 30);
@@ -53,13 +56,21 @@ public class DrawFrame extends GridPane {
 
         // filledLabel.setFont(new Font("Times New Roman", 14));
 
+        canvas.moving(false);
         canvas.setBorderColor(borderColorPicker.getValue());
         canvas.setFillColor(fillColorPicker.getValue());
+        //canvas.moving(canvas.getLetsMove());
 
     }
 
-    private void setHandlers(){
 
+
+    private void setHandlers(){
+        moveBtn.setOnAction(event -> {
+            if (moveBtn.isSelected())
+            canvas.moving(true);
+            else canvas.moving(false);
+        });
 
         shapesComboBox.setOnAction(event -> {
 
@@ -95,6 +106,8 @@ public class DrawFrame extends GridPane {
             canvas.repaint();
         });
 
+
+
     }
     private void setLayout(GridPane mainGridPane){
 
@@ -115,6 +128,7 @@ public class DrawFrame extends GridPane {
         menu.add(shapesComboBox, 0, 2);
         menu.add(borderColorPicker, 0, 3);
         menu.add(fillColorPicker, 0, 4);
+        menu.add(moveBtn, 0, 5);
         //    menu.add(fillPane, 0, 4);
 
         //this.setGridLinesVisible(true);

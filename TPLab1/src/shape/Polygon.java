@@ -122,13 +122,73 @@ public class Polygon extends TwoDimensionalShape {
 	@Override
 	public void move(Point pt) {
 		Point theCenter = getCenter();
-		int deltaX = pt.x - theCenter.x;
-		int deltaY = pt.y - theCenter.y;
+		double deltaX = pt.x - theCenter.x;
+		double deltaY = pt.y - theCenter.y;
 		for (int i = 0; i < getnPoints(); i++) {
 			getxPoints()[i] += deltaX;
 			getyPoints()[i] += deltaY;
 		}
 		super.move(pt);
+	}
+
+	@Override
+	public boolean contains(Point pt) {
+		int hits = 0;
+
+		double lastx = getxPoints()[getnPoints() - 1];
+		double lasty = getyPoints()[getnPoints() - 1];
+		double curx, cury;
+
+		// Walk the edges of the polygon
+		for (int i = 0; i < getnPoints(); lastx = curx, lasty = cury, i++) {
+			curx = getxPoints()[i];
+			cury = getyPoints()[i];
+
+			if (cury == lasty) {
+				continue;
+			}
+
+			double leftx;
+			if (curx < lastx) {
+				if (pt.x >= lastx) {
+					continue;
+				}
+				leftx = curx;
+			} else {
+				if (pt.x >= curx) {
+					continue;
+				}
+				leftx = lastx;
+			}
+
+			double test1, test2;
+			if (cury < lasty) {
+				if (pt.y < cury || pt.y >= lasty) {
+					continue;
+				}
+				if (pt.x < leftx) {
+					hits++;
+					continue;
+				}
+				test1 = pt.x - curx;
+				test2 = pt.y - cury;
+			} else {
+				if (pt.y < lasty || pt.y >= cury) {
+					continue;
+				}
+				if (pt.x < leftx) {
+					hits++;
+					continue;
+				}
+				test1 = pt.x - lastx;
+				test2 = pt.y - lasty;
+			}
+
+			if (test1 < (test2 / (lasty - cury) * (lastx - curx))) {
+				hits++;
+			}
+		}
+		return ((hits & 1) != 0);
 	}
 
 
