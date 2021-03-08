@@ -5,10 +5,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shape/DrawFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shape/DrawFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shape/DrawPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shape/DrawPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shape/IsoscelesTriangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shape/IsoscelesTriangle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shape/Parallelogram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shape/Parallelogram.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shape/Ray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shape/Ray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shape/Rectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shape/Rectangle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shape/RegularPolygon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shape/RegularPolygon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shape/RightTriangle.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

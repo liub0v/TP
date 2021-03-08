@@ -22,7 +22,7 @@ public class DrawFrame extends GridPane {
     private CheckBox filledCheckBox = new CheckBox();
     //comboBox
     private ObservableList<String> shape1DNames = FXCollections.observableArrayList( "Line", "Ray", "Line Segment");
-    private ObservableList<String> shape2DNames = FXCollections.observableArrayList("Rectangle", "Circle", "Rhombus", "Ellipse", "Parallelogram");
+    private ObservableList<String> shape2DNames = FXCollections.observableArrayList("Rectangle", "Circle", "Rhombus", "Ellipse", "Parallelogram", "Regular Polygon");
     private ComboBox<String> shapesComboBox = new ComboBox<String>();
     //canvas
     DrawPanel canvas = new DrawPanel();
@@ -52,7 +52,7 @@ public class DrawFrame extends GridPane {
 
         filledLabel.setFont(new Font("Times New Roman", 14));
 
-        canvas.setColor(colorPicker.getValue());
+        canvas.setBorderColor(colorPicker.getValue());
 
     }
 
@@ -65,7 +65,7 @@ public class DrawFrame extends GridPane {
         });
         colorPicker.setOnAction(event -> {
 
-            canvas.setColor(colorPicker.getValue());
+            canvas.setBorderColor(colorPicker.getValue());
         });
         shape1DBtn.setOnAction(event -> {
 
