@@ -19,12 +19,13 @@ public class DrawPanel extends Canvas {
     private Color color = Color.BLACK;
     private Shape myShape;
     String shape = "";
+    private boolean isBrokenLine;
 
     public DrawPanel() {
 
         super();
         gc = this.getGraphicsContext2D();
-
+        isBrokenLine = false;
         setSize();
         setBackground(Color.WHITE);
 
@@ -94,6 +95,11 @@ public class DrawPanel extends Canvas {
                     case "Line Segment":
                         myShape = new LineSegment(points.get(pointsNumber - 2), points.get(pointsNumber - 1), color);
                         myShape.draw(gc);
+                        break;
+                    case "Broken line":
+                        myShape = new BrokenLine(points.get(pointsNumber - 2), points.get(pointsNumber - 1), color);
+                        myShape.draw(gc);
+                        ((BrokenLine) myShape).addPoint(new Point((int) (event.getSceneX()), (int) event.getSceneY()));
                         break;
                     case "Rectangle":
                         myShape= new Rectangle(points.get(pointsNumber - 2), points.get(pointsNumber - 1), color, Color.WHITE);

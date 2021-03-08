@@ -1,20 +1,51 @@
 package shape;
 
 
-/**
- * @version 1.0
- * @created 24-���-2021 13:54:08
- */
-public class BrokenLine {
+import javafx.scene.canvas.GraphicsContext;
+import java.awt.Point;
+import java.util.ArrayList;
 
-	public LineSegment m_LineSegment;
+public class BrokenLine extends LineSegment {
 
-	public BrokenLine(){
+	private ArrayList<Point> segments;
 
+	public BrokenLine() {
 	}
 
-	public void finalize() throws Throwable {
-
+	public BrokenLine(Point theCenter, Point theSecondPoint, javafx.scene.paint.Color borderColor) {
+		super(theCenter, theSecondPoint, borderColor);
+		segments = new ArrayList<>();
 	}
+
+
+	@Override
+	public void draw(GraphicsContext gc ) {
+		if(segments.size()==0) {
+			gc.moveTo(getCenter().x, getCenter().y);
+			gc.lineTo(getTheSecondPoint().x, getTheSecondPoint().y);
+			gc.stroke();
+			addPoint(getTheSecondPoint());
+		}
+		else {
+			for (int i = 0; i < segments.size(); i++) {
+				Point segment = segments.get(i);
+				gc.setStroke(getBorderColor());
+				gc.moveTo(segments.get(i - 1).x, segments.get(i - 1).y);
+				gc.lineTo(segment.x,
+						segment.y);
+				gc.stroke();
+			}
+		}
+	}
+
+
+
+
+	public void addPoint(Point pt) {
+		//Point endPoint = segments.isEmpty() ? getCenter() : segments.get(segments.size() - 1).getTheSecondPoint();
+		segments.add(pt);
+	}
+
+
 
 }

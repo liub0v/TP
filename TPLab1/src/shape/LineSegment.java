@@ -20,7 +20,6 @@ public class LineSegment extends Ray {
 
 	@Override
 	public void draw( GraphicsContext gc ) {
-
 		gc.setStroke(getBorderColor());
 		gc.strokeLine(getCenter().x, getCenter().y, getTheSecondPoint().x, getTheSecondPoint().y);
 	}
