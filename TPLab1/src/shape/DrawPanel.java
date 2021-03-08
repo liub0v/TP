@@ -196,13 +196,14 @@ public class DrawPanel extends Canvas {
                     switch (shape) {
                         case "Polygon":
                             polygonPoints.add(currentPoint);
-//                            System.out.println("First point: " + polygonPoints.get(0));
-//                            System.out.println(currentPoint);
                             if (currentPoint.x < polygonPoints.get(0).x + 5
                                     && currentPoint.x > polygonPoints.get(0).x - 5
                                     && currentPoint.y < polygonPoints.get(0).y + 5
                                     && currentPoint.y > polygonPoints.get(0).y - 5
-                                    && polygonPoints.size() > 1) {
+                                    && polygonPoints.size() > 3) {
+
+                                polygonPoints.remove(polygonPoints.size()-1);
+                                polygonPoints.add(polygonPoints.get(0));
 
                                 myShape = new Polygon(new Point(0, 0), polygonPoints, borderColor, fillColor);
                                 myShape.draw(gc);

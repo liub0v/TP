@@ -42,39 +42,39 @@ public class Polygon extends TwoDimensionalShape {
 		}
 	}
 
-	public ArrayList<Point> getPoints() {
-		ArrayList<Point> points = new ArrayList<>(getnPoints());
-		for (int i = 0; i < getnPoints(); ++i)
-			points.add(new Point((int)getxPoints()[i], (int)getyPoints()[i]));
-		return points;
-	}
+//	public ArrayList<Point> getPoints() {
+//		ArrayList<Point> points = new ArrayList<>(getnPoints());
+//		for (int i = 0; i < getnPoints(); ++i)
+//			points.add(new Point((int)getxPoints()[i], (int)getyPoints()[i]));
+//		return points;
+//	}
 
-	public int getPointsSize() {
-		return getnPoints();
-	}
-
-	public void addPoint(Point pt) {
-		if (getnPoints() >= getxPoints().length || getnPoints() >= getyPoints().length) {
-			int newLength = getnPoints() * 2;
-			if (newLength < MIN_LENGTH) {
-				newLength = MIN_LENGTH;
-			} else if ((newLength & (newLength - 1)) != 0) {
-				newLength = Integer.highestOneBit(newLength);
-			}
-			setxPoints(Arrays.copyOf(getxPoints(), newLength));
-			setyPoints(Arrays.copyOf(getyPoints(), newLength));
-		}
-		getxPoints()[getnPoints()] = pt.x;
-		getyPoints()[getnPoints()] = pt.y;
-		setnPoints(getnPoints() + 1);
-		setTheCenter(computeCenter());
-	}
-
-	public void setLastPoint(Point pt) {
-		getxPoints()[getnPoints() - 1] = pt.x;
-		getyPoints()[getnPoints() - 1] = pt.y;
-		setTheCenter(computeCenter());
-	}
+//	public int getPointsSize() {
+//		return getnPoints();
+//	}
+//
+//	public void addPoint(Point pt) {
+//		if (getnPoints() >= getxPoints().length || getnPoints() >= getyPoints().length) {
+//			int newLength = getnPoints() * 2;
+//			if (newLength < MIN_LENGTH) {
+//				newLength = MIN_LENGTH;
+//			} else if ((newLength & (newLength - 1)) != 0) {
+//				newLength = Integer.highestOneBit(newLength);
+//			}
+//			setxPoints(Arrays.copyOf(getxPoints(), newLength));
+//			setyPoints(Arrays.copyOf(getyPoints(), newLength));
+//		}
+//		getxPoints()[getnPoints()] = pt.x;
+//		getyPoints()[getnPoints()] = pt.y;
+//		setnPoints(getnPoints() + 1);
+//		setTheCenter(computeCenter());
+//	}
+//
+//	public void setLastPoint(Point pt) {
+//		getxPoints()[getnPoints() - 1] = pt.x;
+//		getyPoints()[getnPoints() - 1] = pt.y;
+//		setTheCenter(computeCenter());
+//	}
 
 	private Point computeCenter() {
 		Point centroid = new Point(0, 0);
