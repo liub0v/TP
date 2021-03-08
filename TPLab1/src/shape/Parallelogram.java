@@ -26,6 +26,10 @@ public class Parallelogram extends Polygon {
         points.add(bottomLeft);
         return points;
     }
+    @Override
+    public void draw(GraphicsContext gc){
+        super.draw(gc);
+    }
 
     public void setCornerPoint(Point pt) {
         setPoints(getParallelogramPoints(pt));

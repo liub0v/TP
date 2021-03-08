@@ -5,9 +5,10 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shape/DrawFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shape/DrawFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shape/DrawPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shape/DrawPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shape/Polygon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shape/Polygon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shape/Rhombus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shape/Rhombus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shape/TwoDimensionalShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shape/TwoDimensionalShape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shape/IsoscelesTriangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shape/IsoscelesTriangle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shape/Parallelogram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shape/Parallelogram.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shape/Ray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shape/Ray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shape/Rectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shape/Rectangle.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -246,17 +247,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -308,6 +298,7 @@
       <workItem from="1614880760397" duration="7701000" />
       <workItem from="1614950317835" duration="23978000" />
       <workItem from="1615115196589" duration="20659000" />
+      <workItem from="1615194858176" duration="2037000" />
     </task>
     <task id="LOCAL-00001" summary="add ellipse, circle, modify line, ray">
       <created>1615138541964</created>
