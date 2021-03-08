@@ -30,6 +30,7 @@ public class Polygon extends TwoDimensionalShape {
 		setPoints(points);
 	}
 
+
 	public void setPoints(ArrayList<Point> points) {
 		setnPoints(points.size());
 		setxPoints(new double[getnPoints()]);
@@ -116,12 +117,15 @@ public class Polygon extends TwoDimensionalShape {
 		super.draw(gc);
 		gc.strokePolygon(getxPoints(), getyPoints(), getnPoints());
 		gc.fillPolygon(getxPoints(), getyPoints(), getnPoints());
+
 	}
 
 
 	@Override
 	public void move(Point pt) {
-		Point theCenter = getCenter();
+		//Point theCenter = getCenter();
+		Point theCenter = computeCenter();
+
 		double deltaX = pt.x - theCenter.x;
 		double deltaY = pt.y - theCenter.y;
 		for (int i = 0; i < getnPoints(); i++) {
