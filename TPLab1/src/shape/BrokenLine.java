@@ -20,22 +20,23 @@ public class BrokenLine extends LineSegment {
 
 	@Override
 	public void draw(GraphicsContext gc ) {
-		if(segments.size()==0) {
-			gc.moveTo(getCenter().x, getCenter().y);
-			gc.lineTo(getTheSecondPoint().x, getTheSecondPoint().y);
-			gc.stroke();
-			addPoint(getTheSecondPoint());
-		}
-		else {
-			for (int i = 0; i < segments.size(); i++) {
-				Point segment = segments.get(i);
-				gc.setStroke(getBorderColor());
-				gc.moveTo(segments.get(i - 1).x, segments.get(i - 1).y);
-				gc.lineTo(segment.x,
-						segment.y);
-				gc.stroke();
-			}
-		}
+//		if(segments.size()==0) {
+//			gc.moveTo(getCenter().x, getCenter().y);
+//			gc.lineTo(getTheSecondPoint().x, getTheSecondPoint().y);
+//			gc.stroke();
+//			addPoint(getTheSecondPoint());
+//		}
+//		else {
+//			for (int i = 0; i < segments.size(); i++) {
+//				Point segment = segments.get(i);
+//				gc.setStroke(getBorderColor());
+//				gc.moveTo(segments.get(i - 1).x, segments.get(i - 1).y);
+//				gc.lineTo(segment.x,segment.y);
+//				gc.stroke();
+//			}
+//		}
+		LineSegment lineSegment = new LineSegment(getCenter(),getTheSecondPoint(),getBorderColor());
+		lineSegment.draw(gc);
 	}
 
 

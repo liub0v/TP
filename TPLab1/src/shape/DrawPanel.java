@@ -14,7 +14,7 @@ public class DrawPanel extends Canvas {
     private int w = 600;
     private int h = 600;
     private ArrayList<Point> points = new ArrayList<Point>();
-    private int pointsNumber =0;
+    private int pointsNumber = 0;
     private GraphicsContext gc;
     private Color borderColor = Color.BLACK;
     private Color fillColor = Color.WHITE;
@@ -58,6 +58,7 @@ public class DrawPanel extends Canvas {
     public void setBorderColor(Color color) {
         this.borderColor = color;
     }
+
     public void setFillColor(Color color) {
         this.fillColor = color;
     }
@@ -93,7 +94,6 @@ public class DrawPanel extends Canvas {
                     case "Line":
                         myShape = new Line(points.get(pointsNumber - 2), points.get(pointsNumber - 1), borderColor);
                         myShape.draw(gc);
-
                         break;
                     case "Ray":
                         myShape = new Ray(points.get(pointsNumber - 2), points.get(pointsNumber - 1), borderColor);
@@ -103,17 +103,17 @@ public class DrawPanel extends Canvas {
                         myShape = new LineSegment(points.get(pointsNumber - 2), points.get(pointsNumber - 1), borderColor);
                         myShape.draw(gc);
                         break;
-                    case "Broken line":
-                        myShape = new BrokenLine(points.get(pointsNumber - 2), points.get(pointsNumber - 1), borderColor);
-                        myShape.draw(gc);
-                        ((BrokenLine) myShape).addPoint(new Point((int) (event.getSceneX()), (int) event.getSceneY()));
-                        break;
+//                    case "Broken line":
+//                        myShape = new BrokenLine(points.get(pointsNumber - 2), points.get(pointsNumber - 1), borderColor);
+//                        myShape.draw(gc);
+//                        ((BrokenLine) myShape).addPoint(new Point((int) (event.getSceneX()), (int) event.getSceneY()));
+//                        break;
                     case "Rectangle":
-                        myShape= new Rectangle(points.get(pointsNumber - 2), points.get(pointsNumber - 1), borderColor, fillColor);
+                        myShape = new Rectangle(points.get(pointsNumber - 2), points.get(pointsNumber - 1), borderColor, fillColor);
                         myShape.draw(gc);
                         break;
                     case "Parallelogram":
-                        myShape= new Parallelogram(points.get(pointsNumber - 2), points.get(pointsNumber - 1), borderColor, fillColor);
+                        myShape = new Parallelogram(points.get(pointsNumber - 2), points.get(pointsNumber - 1), borderColor, fillColor);
                         myShape.draw(gc);
                         break;
                     case "Circle":
@@ -140,6 +140,15 @@ public class DrawPanel extends Canvas {
 
             }
             //shapes are drawn by more points
+            if (pointsNumber > 1) {
+                switch (shape) {
+                    case "Broken line":
+                        myShape = new BrokenLine(points.get(pointsNumber - 2), points.get(pointsNumber - 1), borderColor);
+                        myShape.draw(gc);
+                        break;
+                }
+
+            }
             //shapes are drawn by fixed amount points
 
         }
