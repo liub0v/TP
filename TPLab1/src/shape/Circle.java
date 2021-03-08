@@ -15,9 +15,10 @@ public class Circle extends Ellipse {
 
 	}
 
-	public Circle(Point theCenter, Point theSecondPoint, Color borderColor, Color fillColor) {
-		super(theCenter,theSecondPoint,theSecondPoint,borderColor,fillColor);
+	public Circle(Point theCenter, Color borderColor, Color fillColor, Point cornerPoint) {
+		super(theCenter, borderColor, fillColor, cornerPoint);
 	}
+
 
 	public void finalize() throws Throwable {
 		super.finalize();
@@ -41,8 +42,17 @@ public class Circle extends Ellipse {
 		return super.getCenter();
 	}
 
-	public void move(){
-
+	@Override
+	protected void adaptCornerPoint(Point theCenter) {
+		Point cornerPoint = getCornerPoint();
+		int deltaX = theCenter.x - cornerPoint.x;
+		int deltaY = theCenter.y - cornerPoint.y;
+		if (deltaX < 0)
+			cornerPoint.translate(2 * deltaX, 0);
+		if (deltaY < 0)
+			cornerPoint.translate(0, 2 * deltaY);
+		cornerPoint.setLocation(cornerPoint.x, theCenter.y - theCenter.x + cornerPoint.x);
 	}
+
 
 }

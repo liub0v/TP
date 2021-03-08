@@ -145,8 +145,18 @@ public class DrawPanel extends Canvas {
                                     borderColor, Color.WHITE, numberOfSides);
                             myShape.draw(gc);
                             break;
+                        case "Ellipse":
+                            myShape = new Ellipse(points.get(pointsNumber - 2),
+                                    borderColor, fillColor, points.get(pointsNumber - 1));
+                            Ellipse e = (Ellipse) myShape;
+                            e.setCornerPoint(points.get(pointsNumber - 1));
+                            myShape.draw(gc);
+                            break;
                         case "Circle":
-                            myShape = new Circle(points.get(pointsNumber - 2), points.get(pointsNumber - 1), borderColor, fillColor);
+                            myShape = new Circle(points.get(pointsNumber - 2),
+                                    borderColor, fillColor, points.get(pointsNumber - 1));
+                            Circle c = (Circle) myShape;
+                            c.setCornerPoint(points.get(pointsNumber - 1));
                             myShape.draw(gc);
                             break;
                     }
@@ -155,11 +165,6 @@ public class DrawPanel extends Canvas {
                 //shapes are drawn by 3 points
                 if (pointsNumber > 1 && pointsNumber % 3 == 0) {
                     switch (shape) {
-                        case "Ellipse":
-                            myShape = new Ellipse(points.get(pointsNumber - 3), points.get(pointsNumber - 2),
-                                    points.get(pointsNumber - 1), borderColor, fillColor);
-                            myShape.draw(gc);
-                            break;
                         case "Rhombus":
                             myShape = new Rhombus(points.get(pointsNumber - 3), points.get(pointsNumber - 2),
                                     points.get(pointsNumber - 1), borderColor, fillColor);
