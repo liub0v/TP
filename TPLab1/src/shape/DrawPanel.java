@@ -131,6 +131,11 @@ public class DrawPanel extends Canvas {
                             myShape = new Parallelogram(points.get(pointsNumber - 2), points.get(pointsNumber - 1), borderColor, fillColor);
                             myShape.draw(gc);
                             break;
+                        case "Regular Polygon":
+                            myShape = new RegularPolygon( points.get(pointsNumber - 2), points.get(pointsNumber - 1),
+                                    borderColor, Color.WHITE, 4);
+                            myShape.draw(gc);
+                            break;
                         case "Circle":
                             myShape = new Circle(points.get(pointsNumber - 2), points.get(pointsNumber - 1), borderColor, fillColor);
                             myShape.draw(gc);
