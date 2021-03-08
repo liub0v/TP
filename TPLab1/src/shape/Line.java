@@ -69,8 +69,5 @@ public class Line extends OneDimensionalShape {
     }
 
 
-    public void move() {
-
-    }
 
 }

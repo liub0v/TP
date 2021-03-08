@@ -63,8 +63,17 @@ public class Ellipse extends TwoDimensionalShape {
 		return firstPoint;
 	}
 
-	public void move(){
-
+	public void move(Point pt) {
+		Point theCenter = getCenter();
+		double x = getCenter().x;
+		double y = getCenter().y;
+		double height = Math.sqrt((x-firstPoint.x)*(x-firstPoint.x)+
+				(y-firstPoint.y)*(y-firstPoint.y))*2;
+		double width = Math.sqrt((x-secondPoint.x)*	(x-secondPoint.x)+
+				(y-secondPoint.y)*(y-secondPoint.y))*2;
+		this.firstPoint = new Point((int)(pt.x+ height), (int)(pt.x+height));
+		this.secondPoint= new Point((int)(pt.x+ width), (int)(pt.x+width));
+		super.move(pt);
 	}
 
 }

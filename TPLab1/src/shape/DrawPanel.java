@@ -168,8 +168,11 @@ public class DrawPanel extends Canvas {
         @Override
         public void handle(MouseEvent event) {
             Point point = new Point((int) (event.getSceneX()), (int) event.getSceneY());
-            if (isDragged)
+            if (isDragged) {
                 myShape.move(point);
+                repaint();
+                myShape.draw(gc);
+            }
         }
     };
     private final EventHandler<MouseEvent> mouseHandler3 = new EventHandler<MouseEvent>() {
