@@ -11,8 +11,8 @@ import java.util.ArrayList;
 
 public class DrawPanel extends Canvas {
 
-    private int w = 600;
-    private int h = 600;
+    private final int WIDTH = 600;
+    private final int HEIGHT = 600;
     private ArrayList<Point> points = new ArrayList<Point>();
     private int pointsNumber =0;
     private GraphicsContext gc;
@@ -20,8 +20,8 @@ public class DrawPanel extends Canvas {
     private Color fillColor = Color.WHITE;
     private Shape myShape;
     String shape = "";
-    private boolean isDragged = false;
     private boolean letsmove = false;
+    private boolean isDragged = true;
 
     public DrawPanel() {
 
@@ -39,12 +39,12 @@ public class DrawPanel extends Canvas {
 
     private void setBackground(Color color) {
         gc.setFill(color);
-        gc.fillRoundRect(0, 0, w, h, 0, 0);
+        gc.fillRoundRect(0, 0, WIDTH, HEIGHT, 0, 0);
     }
 
     private void setSize() {
-        this.setHeight(h);
-        this.setWidth(w);
+        this.setHeight(HEIGHT);
+        this.setWidth(WIDTH);
     }
 
     void repaint() {
@@ -94,14 +94,14 @@ public class DrawPanel extends Canvas {
         @Override
         public void handle(MouseEvent event) {
 
-            drawPoint(event);
-
             if (getLetsMoveValue()) {
-                Point point = new Point((int) (event.getSceneX()), (int) event.getSceneY());
+                Point point = new Point((int) (event.getSceneX()),
+                        (int) event.getSceneY());
                 if (myShape.contains(point)) {
                     isDragged = true;
                 }
             } else {
+                drawPoint(event);
                 //shapes are drawn by 2 points
                 if (pointsNumber % 2 == 0) {
                     switch (shape) {
@@ -162,6 +162,7 @@ public class DrawPanel extends Canvas {
 
     };
 
+
     private final EventHandler<MouseEvent> mouseHandler2 = new EventHandler<MouseEvent>() {
 
         @Override
@@ -178,8 +179,9 @@ public class DrawPanel extends Canvas {
             Point point = new Point((int) (event.getSceneX()), (int) event.getSceneY());
             if (letsmove) {
                 isDragged = false;
-                letsmove = false;
             }
         }
     };
+
+
 }

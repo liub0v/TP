@@ -5,10 +5,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shape/DrawFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shape/DrawFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shape/DrawPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shape/DrawPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shape/IsoscelesTriangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shape/IsoscelesTriangle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shape/Parallelogram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shape/Parallelogram.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shape/Ray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shape/Ray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shape/Rectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shape/Rectangle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shape/RightTriangle.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -299,6 +296,7 @@
       <workItem from="1614950317835" duration="23978000" />
       <workItem from="1615115196589" duration="20659000" />
       <workItem from="1615194858176" duration="2037000" />
+      <workItem from="1615214712265" duration="2264000" />
     </task>
     <task id="LOCAL-00001" summary="add ellipse, circle, modify line, ray">
       <created>1615138541964</created>
@@ -409,9 +407,9 @@
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/shape/Ellipse.java</url>
-          <line>36</line>
-          <option name="timeStamp" value="7" />
+          <url>file://$PROJECT_DIR$/src/shape/DrawPanel.java</url>
+          <line>169</line>
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

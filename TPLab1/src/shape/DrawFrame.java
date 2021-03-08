@@ -10,7 +10,7 @@ import javafx.scene.paint.Color;
 public class DrawFrame extends GridPane {
 
     //buttons
-    private Button moveBtn = new Button("Move");
+    private ToggleButton moveBtn = new ToggleButton("Move");
     private Button clearBtn = new Button("Clear");
     private Button shape1DBtn = new Button("1D");
     private Button shape2DBtn = new Button("2D");
@@ -67,7 +67,9 @@ public class DrawFrame extends GridPane {
 
     private void setHandlers(){
         moveBtn.setOnAction(event -> {
+            if (moveBtn.isSelected())
             canvas.moving(true);
+            else canvas.moving(false);
         });
 
         shapesComboBox.setOnAction(event -> {
