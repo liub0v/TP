@@ -10,3 +10,25 @@
     -fx-background-color: rgba(13, 250, 56, 0.82);
     -fx-text-fill: rgb(0, 0, 0);
 }
+.color-picker{
+    -fx-background-color:  #aa9ad0;
+    -fx-background-radius: 15 15 15 15;
+    -fx-effect: dropshadow(gaussian, #6b6183, 10, 0.1, -1, -1);
+
+    -fx-padding: 0;
+    -fx-border-color: rgba(0, 128, 0, 0);
+}
+.color-picker:focused{
+    -fx-effect: innershadow( gaussian, #6b6183, 10, 0.5,-3, -3 );
+}
+.color-picker .color-picker-label .text {
+    visibility: false;
+}
+.color-picker .color-picker-label{
+    /*-fx-scale-x: 1.53;*/
+    /*-fx-scale-y: 1.53;*/
+    -fx-padding: 20;
+    -fx-border-width: 0;
+
+
+}

@@ -3,7 +3,10 @@ package shape;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.*;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.effect.InnerShadow;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.RowConstraints;
 import javafx.scene.paint.Color;
 
 
@@ -18,10 +21,7 @@ public class DrawFrame extends GridPane {
     //colorPicker
     private final ColorPicker borderColorPicker = new ColorPicker(Color.BLACK);
     private final ColorPicker fillColorPicker = new ColorPicker(Color.WHITE);
-    //?fill
-    //  private Label filledLabel = new Label("  Filled");
-    //  private CheckBox filledCheckBox = new CheckBox();
-    //comboBox
+
     private ObservableList<String> shape1DNames = FXCollections.observableArrayList( "Line", "Ray", "Line Segment", "Broken line");
     private ObservableList<String> shape2DNames = FXCollections.observableArrayList("Rectangle", "Circle", "Rhombus", "Ellipse", "Parallelogram", "Regular Polygon","Polygon");
     private ComboBox<String> shapesComboBox = new ComboBox<String>();
@@ -42,8 +42,12 @@ public class DrawFrame extends GridPane {
         clearBtn.getStyleClass().add("clearBtn");
         moveBtn.setPrefSize(100, 20);
         moveBtn.getStyleClass().add("moveBtn");
-        borderColorPicker.setPrefSize(100, 30);
-        fillColorPicker.setPrefSize(100, 30);
+
+        borderColorPicker.setPrefSize(70, 30);
+        borderColorPicker.getStyleClass().add("colorPicker");
+
+        fillColorPicker.setPrefSize(70, 30);
+        fillColorPicker.getStyleClass().add("colorPicker");
         shape1DBtn.setPrefSize(50, 30);
         shape2DBtn.setPrefSize(50, 30);
         shape1DBtn.getStyleClass().add("shapeBtn");
@@ -60,6 +64,8 @@ public class DrawFrame extends GridPane {
         canvas.setBorderColor(borderColorPicker.getValue());
         canvas.setFillColor(fillColorPicker.getValue());
         //canvas.moving(canvas.getLetsMove());
+
+
 
     }
 
@@ -115,20 +121,35 @@ public class DrawFrame extends GridPane {
 
         GridPane menu = new GridPane();
 
+
     /*    GridPane fillPane = new GridPane();
         fillPane.add(filledCheckBox, 0, 0);
         fillPane.add(filledLabel, 1, 0);
     */
-        GridPane shapeButtons = new GridPane();
-        shapeButtons.add(shape1DBtn,0,0);
-        shapeButtons.add(shape2DBtn,1,0);
+        GridPane shapePane = new GridPane();
+        shapePane.add(new Label("Shape"),0,0);
+        GridPane shapeDimBtns=new GridPane();
+        shapeDimBtns.add(shape1DBtn,0,0);
+        shapeDimBtns.add(shape2DBtn,1,0);
+        shapePane.add(shapeDimBtns,0,1);
+        shapePane.add(shapesComboBox,0,2);
 
-        menu.add(clearBtn, 0, 0);
-        menu.add(shapeButtons,0,1);
-        menu.add(shapesComboBox, 0, 2);
-        menu.add(borderColorPicker, 0, 3);
-        menu.add(fillColorPicker, 0, 4);
-        menu.add(moveBtn, 0, 5);
+        GridPane colorPane = new GridPane();
+        colorPane.add(new Label("Color"),0,0);
+        colorPane.add(borderColorPicker,0,1);
+        colorPane.add(fillColorPicker,0,2);
+
+        GridPane functionsPane = new GridPane();
+        functionsPane.add(new Label("Tools"),0,0);
+        functionsPane.add(clearBtn,0,1);
+        functionsPane.add(moveBtn,0,2);
+        int menuRowHeight=100;
+        RowConstraints menuRow = new RowConstraints(menuRowHeight);
+        menu.getRowConstraints().addAll(menuRow,menuRow,menuRow);
+        menu.add(shapePane,0,0);
+        menu.add(colorPane,0,1);
+        menu.add(functionsPane,0,2);
+
         //    menu.add(fillPane, 0, 4);
 
         //this.setGridLinesVisible(true);
