@@ -41,7 +41,7 @@ public class DrawFrame extends GridPane {
         clearBtn.setPrefSize(100, 20);
         clearBtn.getStyleClass().add("clearBtn");
         moveBtn.setPrefSize(100, 20);
-        moveBtn.getStyleClass().add("button");
+        moveBtn.getStyleClass().add("moveButton");
 
         borderColorPicker.setPrefSize(70, 30);
         //borderColorPicker.getStyleClass().add("colorPicker");
@@ -66,6 +66,7 @@ public class DrawFrame extends GridPane {
         canvas.moving(false);
         canvas.setBorderColor(borderColorPicker.getValue());
         canvas.setFillColor(fillColorPicker.getValue());
+        canvas.getStyleClass().add("canvas");
         //canvas.moving(canvas.getLetsMove());
 
 
@@ -75,9 +76,11 @@ public class DrawFrame extends GridPane {
 
 
     private void setHandlers(){
+
         moveBtn.setOnAction(event -> {
-            if (moveBtn.isSelected())
-            canvas.moving(true);
+            if (moveBtn.isSelected()) {
+                canvas.moving(true);
+            }
             else canvas.moving(false);
         });
 

@@ -18,6 +18,7 @@ public class DrawPanel extends Canvas {
     private ArrayList<Point> points = new ArrayList<Point>();
     private int pointsNumber = 0;
     private GraphicsContext gc;
+    Color canvasColor = Color.web("#85b3d4");
     private Color borderColor = Color.BLACK;
     private Color fillColor = Color.WHITE;
     private Shape myShape;
@@ -28,7 +29,9 @@ public class DrawPanel extends Canvas {
     final Point startPointPolygon = new Point();
     final int startPointPolygonNumber = 0;
     private Point currentPoint = new Point();
+
     ArrayList<Point> polygonPoints = new ArrayList<>();
+    ArrayList<LineSegment> segments = new ArrayList<>();
 
 
     public DrawPanel() {
@@ -36,7 +39,7 @@ public class DrawPanel extends Canvas {
         super();
         gc = this.getGraphicsContext2D();
         setSize();
-        setBackground(Color.WHITE);
+        setBackground(canvasColor);
         letsmove = getLetsMoveValue();
         gc.setFill(fillColor);
         gc.setStroke(borderColor);
@@ -57,9 +60,10 @@ public class DrawPanel extends Canvas {
 
     void repaint() {
         gc.clearRect(0, 0, this.getWidth(), this.getHeight());
-        setBackground(Color.WHITE);
+        setBackground(canvasColor);
         points.clear();
         polygonPoints.clear();
+        segments.clear();
     }
 
     public void moving(boolean value) {
@@ -102,6 +106,7 @@ public class DrawPanel extends Canvas {
         setCurrentPoint(point);
         gc.setFill(borderColor);
         gc.fillOval(point.x - 2, point.y - 2, 5, 5);
+
     }
 
 
@@ -110,6 +115,7 @@ public class DrawPanel extends Canvas {
         @Override
         public void handle(MouseEvent event) {
 
+
             if (getLetsMoveValue()) {
                 Point point = new Point((int) (event.getSceneX()),
                         (int) event.getSceneY());
@@ -117,14 +123,16 @@ public class DrawPanel extends Canvas {
                     isDragged = true;
                 }
             } else {
-                drawPoint(event);
+                if(!shape.equals("") && !shape.equals("Choose shape")) {
+                    drawPoint(event);
+                }
                 //shapes are drawn by 2 points
+
                 if (pointsNumber % 2 == 0) {
                     switch (shape) {
                         case "Line":
                             myShape = new Line(points.get(pointsNumber - 2), points.get(pointsNumber - 1), borderColor);
                             myShape.draw(gc);
-
                             break;
                         case "Ray":
                             myShape = new Ray(points.get(pointsNumber - 2), points.get(pointsNumber - 1), borderColor);
@@ -151,7 +159,7 @@ public class DrawPanel extends Canvas {
                                 numberOfSides = Integer.parseInt(result.get());
                             }
                             myShape = new RegularPolygon(points.get(pointsNumber - 2), points.get(pointsNumber - 1),
-                                    borderColor, Color.WHITE, numberOfSides);
+                                    borderColor, fillColor, numberOfSides);
                             myShape.draw(gc);
                             break;
                         case "Ellipse":
@@ -186,9 +194,25 @@ public class DrawPanel extends Canvas {
                 if (pointsNumber > 1) {
                     switch (shape) {
                         case "Broken line":
-                            myShape = new BrokenLine(points.get(pointsNumber - 2), points.get(pointsNumber - 1), borderColor);
-                            myShape.draw(gc);
-                            ((BrokenLine) myShape).addPoint(new Point((int) (event.getSceneX()), (int) event.getSceneY()));
+                            gc.setLineDashes(5);
+                            Point previousPoint = points.get(points.size() - 2);
+                            LineSegment lineSegment = new LineSegment(previousPoint, currentPoint, borderColor);
+                            segments.add(lineSegment);
+                            lineSegment.draw(gc);
+
+                            if (event.getClickCount() == 2) {
+                                gc.setLineDashes(0);
+                                myShape = new BrokenLine(segments.get(segments.size() - 1).getCenter(),
+                                        segments.get(segments.size() - 1).getTheSecondPoint(),
+                                        borderColor,
+                                        segments);
+                                myShape.draw(gc);
+                                points.clear();
+                                setPointsNumber();
+                                System.out.println(pointsNumber);
+                            }
+
+
                             break;
                     }
                 }
@@ -198,6 +222,7 @@ public class DrawPanel extends Canvas {
                             polygonPoints.add(currentPoint);
                             if (polygonPoints.size() > 1) {
                                 gc.setLineDashes(5);
+
                                 Point previousPoint = polygonPoints.get(polygonPoints.size() - 2);
                                 gc.strokeLine(previousPoint.x, previousPoint.y, currentPoint.x, currentPoint.y);
                             }
@@ -215,6 +240,7 @@ public class DrawPanel extends Canvas {
                                 polygonPoints.clear();
                             }
                             break;
+
                     }
                 }
                 //shapes are drawn by fixed amount points
@@ -230,7 +256,7 @@ public class DrawPanel extends Canvas {
         @Override
         public void handle(MouseEvent event) {
             Point point = new Point((int) (event.getSceneX()), (int) event.getSceneY());
-            if (isDragged) {
+            if (isDragged && myShape!=null) {
                 myShape.move(point);
                 repaint();
                 myShape.draw(gc);

@@ -43,6 +43,7 @@ public class RegularPolygon extends Polygon {
 	}
 	@Override
 	public void draw(GraphicsContext gc){
+
 		super.draw(gc);
 	}
 
