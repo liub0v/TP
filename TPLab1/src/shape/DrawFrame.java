@@ -122,15 +122,19 @@ public class DrawFrame extends GridPane {
         mainGridPane.add(canvas, 0, 0);
 
         GridPane menu = new GridPane();
+        menu.getStyleClass().add("menu-pane");
 
         GridPane shapePane = new GridPane();
         shapePane.getRowConstraints().addAll(new RowConstraints(20),
                 new RowConstraints(40),
                 new RowConstraints(40));
-        shapePane.add(new Label("Shape"),0,0);
+        shapePane.add(new Label(" S H A P E"),0,0);
+
         GridPane shapeDimBtns=new GridPane();
+        shapeDimBtns.getRowConstraints().addAll(new RowConstraints(40));
         shapeDimBtns.add(shape1DBtn,0,0);
         shapeDimBtns.add(shape2DBtn,1,0);
+
         shapePane.add(shapeDimBtns,0,1);
         shapePane.add(shapesComboBox,0,2);
 
@@ -139,7 +143,7 @@ public class DrawFrame extends GridPane {
         colorPane.getRowConstraints().addAll(new RowConstraints(20),
                 new RowConstraints(40),
                 new RowConstraints(40));
-        colorPane.add(new Label("Color"),0,0);
+        colorPane.add(new Label("C O L O R"),0,0);
         colorPane.add(borderColorPicker,0,1);
         colorPane.add(fillColorPicker,0,2);
 
@@ -147,7 +151,7 @@ public class DrawFrame extends GridPane {
         functionsPane.getRowConstraints().addAll(new RowConstraints(20),
                 new RowConstraints(40),
                 new RowConstraints(40));
-        functionsPane.add(new Label("Tools"),0,0);
+        functionsPane.add(new Label(" T O O L S"),0,0);
         functionsPane.add(clearBtn,0,1);
         functionsPane.add(moveBtn,0,2);
         int menuRowHeight=100;
