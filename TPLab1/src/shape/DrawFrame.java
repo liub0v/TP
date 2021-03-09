@@ -60,6 +60,7 @@ public class DrawFrame extends GridPane {
         shapesComboBox.setDisable(true);
 
 
+
         // filledLabel.setFont(new Font("Times New Roman", 14));
 
         canvas.moving(false);

@@ -55,6 +55,10 @@
     <ui_properties converted="true" />
     <breakpoint_rules converted="true" />
   </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="testRunner" value="GRADLE" />
+    <option name="delegatedBuild" value="true" />
+  </component>
   <component name="FavoritesManager">
     <favorites_list name="JavaFxApplication" />
   </component>
@@ -87,11 +91,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/shape/DrawFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="213">
-              <caret line="127" column="114" selection-start-line="127" selection-start-column="91" selection-end-line="127" selection-end-column="114" />
+            <state relative-caret-position="154">
+              <caret line="60" selection-start-line="60" selection-end-line="60" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -99,11 +103,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/shape/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="213">
-              <caret line="55" column="21" selection-start-line="55" selection-start-column="21" selection-end-line="55" selection-end-column="21" />
+            <state relative-caret-position="68">
+              <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -186,8 +190,8 @@
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
         <option value="$PROJECT_DIR$/src/shape/Polygon.java" />
         <option value="$PROJECT_DIR$/src/shape/DrawPanel.java" />
-        <option value="$PROJECT_DIR$/src/shape/style.css" />
         <option value="$PROJECT_DIR$/src/shape/DrawFrame.java" />
+        <option value="$PROJECT_DIR$/src/shape/style.css" />
       </list>
     </option>
   </component>
@@ -379,7 +383,7 @@
       <workItem from="1615194858176" duration="2037000" />
       <workItem from="1615207114343" duration="3633000" />
       <workItem from="1615214712265" duration="2264000" />
-      <workItem from="1615221185436" duration="26500000" />
+      <workItem from="1615221185436" duration="29239000" />
     </task>
     <task id="LOCAL-00001" summary="add ellipse, circle, modify line, ray">
       <created>1615138541964</created>
@@ -430,11 +434,25 @@
       <option name="project" value="LOCAL" />
       <updated>1615287429651</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="add ellipse, circle, modify line, ray">
+      <created>1615288794188</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1615288794188</updated>
+    </task>
+    <task id="LOCAL-00009" summary="add ellipse, circle, modify line, ray">
+      <created>1615289477197</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1615289477197</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81087000" />
+    <option name="totallyTimeSpent" value="83826000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -460,7 +478,7 @@
       <window_info anchor="bottom" id="Changes" order="10" />
       <window_info anchor="bottom" id="Profiler" order="11" />
       <window_info anchor="bottom" id="Event Log" order="12" />
-      <window_info anchor="bottom" id="Messages" order="13" weight="0.1991404" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.19830029" />
       <window_info anchor="bottom" id="Docker" order="14" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="15" />
       <window_info anchor="bottom" id="Terminal" order="16" weight="0.16713881" />
@@ -710,13 +728,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/shape/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="55" column="21" selection-start-line="55" selection-start-column="21" selection-end-line="55" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/shape/DrawPanel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2492">
@@ -744,11 +755,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/shape/DrawFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="127" column="114" selection-start-line="127" selection-start-column="91" selection-end-line="127" selection-end-column="114" />
+        <state relative-caret-position="154">
+          <caret line="60" selection-start-line="60" selection-end-line="60" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shape/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
         </state>
       </provider>
     </entry>
