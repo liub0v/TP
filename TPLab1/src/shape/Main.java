@@ -3,6 +3,7 @@ package shape;
 import javafx.application.Application;
 
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 
@@ -15,6 +16,7 @@ public class Main extends Application {
         DrawFrame root = new DrawFrame();
         Scene scene = new Scene(root, 700, 600);
         scene.getStylesheets().add((getClass().getResource("style.css")).toExternalForm());
+        primaryStage.getIcons().add(new Image("https://upload.wikimedia.org/wikipedia/commons/3/3e/White_pencil.png"));
         primaryStage.setScene(scene);
         primaryStage.show();
     }
