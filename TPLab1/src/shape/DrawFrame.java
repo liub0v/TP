@@ -41,22 +41,24 @@ public class DrawFrame extends GridPane {
         clearBtn.setPrefSize(100, 20);
         clearBtn.getStyleClass().add("clearBtn");
         moveBtn.setPrefSize(100, 20);
-        moveBtn.getStyleClass().add("moveBtn");
+        moveBtn.getStyleClass().add("button");
 
         borderColorPicker.setPrefSize(70, 30);
-        borderColorPicker.getStyleClass().add("colorPicker");
+        //borderColorPicker.getStyleClass().add("colorPicker");
 
         fillColorPicker.setPrefSize(70, 30);
-        fillColorPicker.getStyleClass().add("colorPicker");
+        //fillColorPicker.getStyleClass().add("colorPicker");
+
         shape1DBtn.setPrefSize(50, 30);
         shape2DBtn.setPrefSize(50, 30);
-        shape1DBtn.getStyleClass().add("shapeBtn");
-        shape2DBtn.getStyleClass().add("shapeBtn");
+        shape1DBtn.getStyleClass().add("shapeBtn1");
+        shape2DBtn.getStyleClass().add("shapeBtn2");
 
         shapesComboBox.setPrefSize(100, 20);
         shapesComboBox.setValue("Choose shape");
         shapesComboBox.getStyleClass().add("shapesComboBox");
         shapesComboBox.setDisable(true);
+
 
         // filledLabel.setFont(new Font("Times New Roman", 14));
 
@@ -121,12 +123,10 @@ public class DrawFrame extends GridPane {
 
         GridPane menu = new GridPane();
 
-
-    /*    GridPane fillPane = new GridPane();
-        fillPane.add(filledCheckBox, 0, 0);
-        fillPane.add(filledLabel, 1, 0);
-    */
         GridPane shapePane = new GridPane();
+        shapePane.getRowConstraints().addAll(new RowConstraints(20),
+                new RowConstraints(40),
+                new RowConstraints(40));
         shapePane.add(new Label("Shape"),0,0);
         GridPane shapeDimBtns=new GridPane();
         shapeDimBtns.add(shape1DBtn,0,0);
@@ -135,11 +135,18 @@ public class DrawFrame extends GridPane {
         shapePane.add(shapesComboBox,0,2);
 
         GridPane colorPane = new GridPane();
+
+        colorPane.getRowConstraints().addAll(new RowConstraints(20),
+                new RowConstraints(40),
+                new RowConstraints(40));
         colorPane.add(new Label("Color"),0,0);
         colorPane.add(borderColorPicker,0,1);
         colorPane.add(fillColorPicker,0,2);
 
         GridPane functionsPane = new GridPane();
+        functionsPane.getRowConstraints().addAll(new RowConstraints(20),
+                new RowConstraints(40),
+                new RowConstraints(40));
         functionsPane.add(new Label("Tools"),0,0);
         functionsPane.add(clearBtn,0,1);
         functionsPane.add(moveBtn,0,2);
@@ -149,8 +156,6 @@ public class DrawFrame extends GridPane {
         menu.add(shapePane,0,0);
         menu.add(colorPane,0,1);
         menu.add(functionsPane,0,2);
-
-        //    menu.add(fillPane, 0, 4);
 
         //this.setGridLinesVisible(true);
 
