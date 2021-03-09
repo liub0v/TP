@@ -5,6 +5,8 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.*;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.effect.InnerShadow;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.RowConstraints;
 import javafx.scene.paint.Color;
@@ -144,12 +146,28 @@ public class DrawFrame extends GridPane {
 
         GridPane colorPane = new GridPane();
 
-        colorPane.getRowConstraints().addAll(new RowConstraints(20),
+        colorPane.getRowConstraints().addAll(new RowConstraints(30),
                 new RowConstraints(40),
                 new RowConstraints(40));
         colorPane.add(new Label("C O L O R"),0,0);
-        colorPane.add(borderColorPicker,0,1);
-        colorPane.add(fillColorPicker,0,2);
+
+        GridPane borderColorPane = new GridPane();
+        borderColorPane.add(borderColorPicker,0,0);
+        ImageView borderImage=new ImageView("https://icons.iconarchive.com/icons/icons8/ios7/256/Editing-Border-Color-icon.png");
+        borderImage.setFitWidth(20.0);
+        borderImage.setFitHeight(20.0);
+        borderColorPane.add(borderImage,1,0);
+
+        GridPane fillColorPane = new GridPane();
+        fillColorPane.add(fillColorPicker,0,0);
+        ImageView fillImage=new ImageView("https://img.icons8.com/ios/452/fill-color.png");
+        fillImage.setFitWidth(20.0);
+        fillImage.setFitHeight(20.0);
+        fillColorPane.add(fillImage,1,0);
+
+
+        colorPane.add(borderColorPane,0,1);
+        colorPane.add(fillColorPane,0,2);
 
         GridPane functionsPane = new GridPane();
         functionsPane.getRowConstraints().addAll(new RowConstraints(20),
@@ -158,7 +176,7 @@ public class DrawFrame extends GridPane {
         functionsPane.add(new Label(" T O O L S"),0,0);
         functionsPane.add(clearBtn,0,1);
         functionsPane.add(moveBtn,0,2);
-        int menuRowHeight=100;
+        int menuRowHeight=110;
         RowConstraints menuRow = new RowConstraints(menuRowHeight);
         menu.getRowConstraints().addAll(menuRow,menuRow,menuRow);
         menu.add(shapePane,0,0);

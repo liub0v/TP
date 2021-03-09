@@ -18,7 +18,7 @@ public class DrawPanel extends Canvas {
     private ArrayList<Point> points = new ArrayList<Point>();
     private int pointsNumber = 0;
     private GraphicsContext gc;
-    Color canvasColor = Color.web("#85b3d4");
+    Color canvasColor = Color.web("#9199B6");
     private Color borderColor = Color.BLACK;
     private Color fillColor = Color.WHITE;
     private Shape myShape;
@@ -119,7 +119,7 @@ public class DrawPanel extends Canvas {
             if (getLetsMoveValue()) {
                 Point point = new Point((int) (event.getSceneX()),
                         (int) event.getSceneY());
-                if (myShape.contains(point)) {
+                if ( myShape!=null && myShape.contains(point)) {
                     isDragged = true;
                 }
             } else {

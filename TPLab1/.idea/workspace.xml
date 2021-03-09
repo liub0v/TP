@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="add ellipse, circle, modify line, ray">
+      <change afterPath="$PROJECT_DIR$/.idea/cssdialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaFxApplication/shape/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaFxApplication/shape/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shape/DrawFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shape/DrawFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shape/DrawPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shape/DrawPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shape/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shape/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shape/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/shape/style.css" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="C:\Users\User\IdeaProjects\TP\TPLab1\.idea\shelf/" />
@@ -66,8 +71,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/shape/DrawPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-229">
-              <caret line="129" selection-start-line="129" selection-end-line="129" />
+            <state relative-caret-position="144">
+              <caret line="121" column="61" selection-start-line="121" selection-start-column="61" selection-end-line="121" selection-end-column="61" />
               <folding>
                 <element signature="e#2143#2144#0" expanded="true" />
                 <element signature="e#2183#2184#0" expanded="true" />
@@ -121,8 +126,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/shape/DrawFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="57" column="34" selection-start-line="57" selection-start-column="34" selection-end-line="57" selection-end-column="45" />
+            <state relative-caret-position="-340">
+              <caret line="22" column="17" lean-forward="true" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -133,8 +138,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/shape/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="298">
-              <caret line="108" column="20" selection-start-line="108" selection-start-column="20" selection-end-line="108" selection-end-column="20" />
+            <state relative-caret-position="51">
+              <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -142,8 +147,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/shape/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="18" column="115" selection-start-line="18" selection-start-column="115" selection-end-line="18" selection-end-column="115" />
+            <state relative-caret-position="162">
+              <caret line="16" column="48" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -227,8 +232,8 @@
         <option value="$PROJECT_DIR$/src/shape/Polygon.java" />
         <option value="$PROJECT_DIR$/src/shape/BrokenLine.java" />
         <option value="$PROJECT_DIR$/src/shape/RegularPolygon.java" />
-        <option value="$PROJECT_DIR$/src/shape/style.css" />
         <option value="$PROJECT_DIR$/src/shape/DrawFrame.java" />
+        <option value="$PROJECT_DIR$/src/shape/style.css" />
         <option value="$PROJECT_DIR$/src/shape/DrawPanel.java" />
         <option value="$PROJECT_DIR$/src/shape/Main.java" />
       </list>
@@ -422,7 +427,7 @@
       <workItem from="1615194858176" duration="2037000" />
       <workItem from="1615207114343" duration="3633000" />
       <workItem from="1615214712265" duration="2264000" />
-      <workItem from="1615221185436" duration="38115000" />
+      <workItem from="1615221185436" duration="42262000" />
     </task>
     <task id="LOCAL-00001" summary="add ellipse, circle, modify line, ray">
       <created>1615138541964</created>
@@ -501,17 +506,24 @@
       <option name="project" value="LOCAL" />
       <updated>1615309598201</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="add ellipse, circle, modify line, ray">
+      <created>1615310848484</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1615310848484</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="92702000" />
+    <option name="totallyTimeSpent" value="96849000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.20402685" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.20402685" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" weight="0.32954547" />
       <window_info id="Designer" order="3" />
@@ -520,7 +532,7 @@
       <window_info id="UI Designer" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.31303117" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.31303117" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -732,28 +744,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/shape/Polygon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="124" column="16" selection-start-line="124" selection-start-column="16" selection-end-line="124" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4552#4553#0" expanded="true" />
-            <element signature="e#4573#4574#0" expanded="true" />
-            <element signature="e#4618#4619#0" expanded="true" />
-            <element signature="e#4647#4648#0" expanded="true" />
-            <element signature="e#4680#4681#0" expanded="true" />
-            <element signature="e#4701#4702#0" expanded="true" />
-            <element signature="e#4746#4747#0" expanded="true" />
-            <element signature="e#4775#4776#0" expanded="true" />
-            <element signature="e#4803#4804#0" expanded="true" />
-            <element signature="e#4824#4825#0" expanded="true" />
-            <element signature="e#4864#4865#0" expanded="true" />
-            <element signature="e#4893#4894#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/shape/Ellipse.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-642">
@@ -778,17 +768,49 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/shape/Polygon.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="124" column="16" selection-start-line="124" selection-start-column="16" selection-end-line="124" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4552#4553#0" expanded="true" />
+            <element signature="e#4573#4574#0" expanded="true" />
+            <element signature="e#4618#4619#0" expanded="true" />
+            <element signature="e#4647#4648#0" expanded="true" />
+            <element signature="e#4680#4681#0" expanded="true" />
+            <element signature="e#4701#4702#0" expanded="true" />
+            <element signature="e#4746#4747#0" expanded="true" />
+            <element signature="e#4775#4776#0" expanded="true" />
+            <element signature="e#4803#4804#0" expanded="true" />
+            <element signature="e#4824#4825#0" expanded="true" />
+            <element signature="e#4864#4865#0" expanded="true" />
+            <element signature="e#4893#4894#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/shape/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="108" column="20" selection-start-line="108" selection-start-column="20" selection-end-line="108" selection-end-column="20" />
+        <state relative-caret-position="51">
+          <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shape/DrawFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-340">
+          <caret line="22" column="17" lean-forward="true" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/shape/DrawPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-229">
-          <caret line="129" selection-start-line="129" selection-end-line="129" />
+        <state relative-caret-position="144">
+          <caret line="121" column="61" selection-start-line="121" selection-start-column="61" selection-end-line="121" selection-end-column="61" />
           <folding>
             <element signature="e#2143#2144#0" expanded="true" />
             <element signature="e#2183#2184#0" expanded="true" />
@@ -796,20 +818,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/shape/DrawFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="57" column="34" selection-start-line="57" selection-start-column="34" selection-end-line="57" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/shape/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="18" column="115" selection-start-line="18" selection-start-column="115" selection-end-line="18" selection-end-column="115" />
+        <state relative-caret-position="162">
+          <caret line="16" column="48" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

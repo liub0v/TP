@@ -14,10 +14,11 @@ public class Main extends Application {
 
         primaryStage.setTitle("DrawApp");
         DrawFrame root = new DrawFrame();
-        Scene scene = new Scene(root, 700, 600);
+        Scene scene = new Scene(root, 740, 600);
         scene.getStylesheets().add((getClass().getResource("style.css")).toExternalForm());
         primaryStage.getIcons().add(new Image("https://upload.wikimedia.org/wikipedia/commons/3/3e/White_pencil.png"));
         primaryStage.setScene(scene);
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 
